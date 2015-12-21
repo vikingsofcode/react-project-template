@@ -1,0 +1,48 @@
+{
+  "name": "youtify",
+  "version": "1.0.0",
+  "description": "YouTube and Spotify mixed together",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laznic/youtify.git"
+  },
+  "keywords": [
+    "youtube",
+    "spotify",
+    "playlist",
+    "music"
+  ],
+  "author": "Niklas Lepisto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/laznic/youtify/issues"
+  },
+  "homepage": "https://github.com/laznic/youtify#readme",
+  "dependencies": {
+    "axios": "^0.8.1",
+    "glue": "^2.4.0",
+    "hapi": "^11.1.2",
+    "hapi-react-views": "^5.0.1",
+    "hoek": "^3.0.4",
+    "inert": "^3.2.0",
+    "jade": "^1.11.0",
+    "joi": "^7.0.1",
+    "lodash": "^3.10.1",
+    "lout": "^8.0.1",
+    "moment": "^2.10.6",
+    "mongodb": "^2.0.52",
+    "object-assign": "^4.0.1",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "redux": "^3.0.5",
+    "redux-actions": "^0.9.0",
+    "redux-thunk": "^1.0.2",
+    "slug": "^0.9.1",
+    "vision": "^4.0.1",
+    "visionary": "^4.0.0"
+  }
+}
