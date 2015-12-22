@@ -26,7 +26,6 @@
   "homepage": "https://github.com/laznic/youtify#readme",
   "dependencies": {
     "axios": "^0.8.1",
-    "dateformat": "^1.0.12",
     "glue": "^2.4.0",
     "hapi": "^11.1.2",
     "hapi-react-views": "^5.0.1",
