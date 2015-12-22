@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "YouTube and Spotify mixed together",
   "scripts": {
-    "start": "node server/index.js",
+    "start": "node server.js",
     "build": "webpack -p --progress",
     "dev": "webpack --progress --color --watch & nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"

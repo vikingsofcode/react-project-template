@@ -1,59 +1,48 @@
-'use strict';
-// Create a basic Hapi.js server
-require('babel-core/register')({});
-var Hapi = require('hapi');
-var dateFormat = require('dateformat');
-var format = "dd mmm HH:MM:ss";
+import Hapi from 'hapi';
+import Glue from 'glue';
+import path from 'path';
 
-// Basic Hapi.js connection stuff
-var server = new Hapi.Server();
-server.connection({
-  host: '0.0.0.0',
-  port: 6678
-});
+const composeOptions = {
+  relativeTo: __dirname
+};
 
-// Register the inert and vision Hapi plugins
-// As of Hapi 9.x, these two plugins are no longer
-// included in Hapi automatically
-// https://github.com/hapijs/hapi/issues/2682
-server.register([{
-  register: require('inert')
-}, {
-  register: require('vision')
-}], function(err) {
-
-  if (err) return console.error(err);
-    // Add the React-rendering view engine
-    server.views({
-        engines: {
-            jsx: require('hapi-react-views')
-        },
-        relativeTo: __dirname,
-        path: 'views'
-    });
-
-    // Add a route to serve static assets (CSS, JS, IMG)
-    server.route({
-      method: 'GET',
-      path: '/{param*}',
-      handler: {
-        directory: {
-          path: 'build'
-        }
+const manifest = {
+  server: {
+    debug: {
+      request: ['error']
+    },
+    connections: {
+      routes: {
+        security: true
       }
-    });
+    }
+  },
+  connections: [
+    {
+      port: 6678,
+      labels: ['web']
+    }
+  ],
+  plugins: {
+    'lout': {},
+    'inert': {},
+    'vision': {},
+    'visionary': {
+      engines: {
+          jsx: require('hapi-react-views')
+      },
+      path: path.join(__dirname, 'views')
+    },
+    './plugins/web/index': [{ select: ['web'] }]
+  }
+};
 
-    // Add main app route
-    server.route({
-      method: 'GET',
-      path: '/',
-      handler: {
-        view: 'Default'
-      }
-    });
+Glue.compose(manifest, composeOptions, function (err, server) {
+  if(err) {
+    throw err;
+  }
 
-    server.start(function() {
-      console.log(dateFormat(new Date(), format) + ' - Server started at: ' + server.info.uri);
-    });
-
+  server.start(() => {
+    console.log('Server started');
+  });
 });

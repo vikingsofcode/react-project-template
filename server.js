@@ -1,2 +1,4 @@
+'use strict';
 // Create a basic Hapi.js server
-require('./server');
+require('babel-core/register')({});
+require('./server/index');
