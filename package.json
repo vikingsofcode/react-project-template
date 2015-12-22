@@ -1,7 +1,7 @@
 {
-  "name": "react-project-template",
+  "name": "youtify",
   "version": "1.0.0",
-  "description": "react-project-template",
+  "description": "YouTube and Spotify mixed together",
   "scripts": {
     "start": "node server.js",
     "build": "webpack -p --progress",
@@ -13,17 +13,17 @@
     "url": "git+https://github.com/laznic/youtify.git"
   },
   "keywords": [
-    "react",
-    "template",
-    "hapi",
-    "webpack"
+    "youtube",
+    "spotify",
+    "playlist",
+    "music"
   ],
-  "author": "Vikings of Code",
+  "author": "Niklas Lepisto",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vikingsofcode/react-project-template/issues"
+    "url": "https://github.com/laznic/youtify/issues"
   },
-  "homepage": "https://github.com/vikingsofcode/react-project-template#readme",
+  "homepage": "https://github.com/laznic/youtify#readme",
   "dependencies": {
     "axios": "^0.8.1",
     "glue": "^2.4.0",
