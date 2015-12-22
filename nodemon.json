@@ -6,6 +6,6 @@
     "node_modules/**/node_modules",
     "assets/*"
   ],
-  "watch": ['build/server/index.js', 'build/client/*.{js,jsx}']
+  "watch": ["build/server/index.js", "build/client/*.{js,jsx}"],
   "ext": "js json jsx"
 }
