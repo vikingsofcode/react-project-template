@@ -1,3 +1,4 @@
+'use strict';
 // Create a basic Hapi.js server
 require('babel-core/register')({});
 var Hapi = require('hapi');
@@ -22,7 +23,6 @@ server.register([{
 }], function(err) {
 
   if (err) return console.error(err);
-
     // Add the React-rendering view engine
     server.views({
         engines: {
@@ -38,8 +38,7 @@ server.register([{
       path: '/{param*}',
       handler: {
         directory: {
-          path: 'assets',
-          index: ['index.html']
+          path: 'build'
         }
       }
     });

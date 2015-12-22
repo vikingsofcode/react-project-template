@@ -45,6 +45,20 @@ module.exports = {
         test: /\.jsx$|\.js$/,
         loader: 'babel',
         include: path.join(__dirname, 'client'),
+        query: {
+              stage: 0,
+                plugins: ['react-transform'],
+                extra: {
+                "react-transform": [{
+                    "target": "react-transform-hmr",
+                    "imports": ["react"],
+                    "locals": ["module"]
+                }, {
+                    "target": "react-transform-catch-errors",
+                    "imports": ["react", "redbox-react"]
+                }]
+            }
+          }
       },
       {
         test: /\.styl$/,
