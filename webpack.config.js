@@ -7,23 +7,19 @@ var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 var production = process.env.NODE_ENV === 'production';
 
-var entries = ['./client/index'];
+var entries = ['./client/Index.jsx'];
 
 var plugins = [
   require('webpack-notifier')
 ];
 
 if(!production) {
-  entries = [
-    'webpack-dev-server/client?http://localhost:9001',
-    'webpack/hot/only-dev-server'
-  ].concat(entries);
-
   plugins = [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new BrowserSyncPlugin({
-      proxy: 'localhost:9001',
+      proxy: 'localhost:6678',
+      open: false,
       ui: false,
       notify: false
     })
@@ -46,9 +42,9 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
-        loaders: ['react-hot', 'babel'],
-        include: path.join(__dirname, 'src')
+        test: /\.jsx$|\.js$/,
+        loader: 'babel',
+        include: path.join(__dirname, 'client'),
       },
       {
         test: /\.styl$/,
