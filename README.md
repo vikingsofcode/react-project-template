@@ -1,2 +1,2 @@
-# youtify
-YouTube and Spotify mixed together
+# react-project-template
+React project template
